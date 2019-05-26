@@ -30,7 +30,8 @@ See [the PostGIS documentation](http://postgis.net/docs/postgis_installation.htm
 
 For persistant storage across restarts use the -v to specify a data directory, -p to explicitly map the ports if 5432 is in use and specify a tag using : after mdillon/postgis. For example:
 
-    docker run --name some-postgis -p 5433:5432 -v ~/postgresql/data:/var/lib/postgresql/data -d mdillon/postgis:11-alpine
+    export MOUNT_DATA_PATH=~/postgresql/data
+    docker run --name some-postgis -p 5433:5432 -v $MOUNT_DATA_PATH:/var/lib/postgresql/data -d mdillon/postgis:11-alpine
 
 ## Known Issues / Errors
 
